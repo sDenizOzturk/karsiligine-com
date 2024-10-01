@@ -1,0 +1,44 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');*/
+
+@font-face {
+  font-family: 'Oswald';
+  src: local('Oswald'), url('./fonts/Oswald-300.ttf'), format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Oswald';
+  src: local('Oswald'), url('./fonts/Oswald-400.ttf'), format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Oswald';
+  src: local('Oswald'), url('./fonts/Oswald-500.ttf'), format('truetype');
+  font-weight: 500;
+}
+
+:root {
+  --font-family: 'Oswald', sans-serif;
+  --color1: #fbf8f8;
+  --color2: #0b3404;
+  --color2_1: #0b3404ef;
+  --color3: #dadb9e;
+  --color3_1: rgba(218, 219, 158, 0.1);
+  --color3_2: rgba(218, 219, 158, 0.2);
+  --color3_3: rgba(218, 219, 158, 0.3);
+  --color3_4: rgba(218, 219, 158, 0.4);
+  --color4: #faf6ff;
+  --color5: red;
+  font-size: 1.05em;
+}
+@media (pointer: none), (pointer: coarse) {
+  @media (orientation: portrait) {
+    :root {
+      font-size: 4vw;
+    }
+  }
+  @media (orientation: landscape) {
+    :root {
+      font-size: 2vw;
+    }
+  }
+}
