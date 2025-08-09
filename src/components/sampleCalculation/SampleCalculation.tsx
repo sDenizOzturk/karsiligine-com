@@ -1,10 +1,11 @@
-import { BaseButton, BaseCard, BaseWrapper } from 'binak-react-components';
-import { FC, useState } from 'react';
-import { CalculationForm } from '../../models/CalculationForm';
-import { DisplayInflation } from '../calculation/DisplayInflation';
+"use client";
+import { BaseButton, BaseCard, BaseWrapper } from "binak-react-components";
+import { FC, useState } from "react";
+import { CalculationForm } from "@/models/CalculationForm";
+import { DisplayInflation } from "@/components/calculation/DisplayInflation";
 
-import { SampleCalculationVideo } from './SampleCalculationVideo';
-import { SampleCalculationImage } from './SampleCalculationImage';
+import { SampleCalculationVideo } from "./SampleCalculationVideo";
+import { SampleCalculationImage } from "./SampleCalculationImage";
 
 interface SampleCalculationProps {
   label: string;
@@ -27,11 +28,11 @@ export const SampleCalculation: FC<SampleCalculationProps> = ({
 
   return (
     <>
-      <BaseCard style={{ margin: '0', width: '30rem', padding: '0.6rem' }}>
+      <BaseCard style={{ margin: "0", width: "30rem", padding: "0.6rem" }}>
         {videoId && <SampleCalculationVideo videoId={videoId} />}
         {imageUrl && <SampleCalculationImage imageUrl={imageUrl} />}
-        <p style={{ fontWeight: 500 }}>{label + ';'}</p>
-        <BaseWrapper mode={['align-right']}>
+        <p style={{ fontWeight: 500 }}>{label + ";"}</p>
+        <BaseWrapper mode={["align-right"]}>
           <BaseButton
             mode="flat"
             style={{ fontWeight: 500 }}

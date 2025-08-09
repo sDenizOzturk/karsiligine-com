@@ -1,10 +1,11 @@
-import { BaseWrapper } from 'binak-react-components';
-import { FC, useCallback, useEffect, useState } from 'react';
-import { CalculationForm } from '../../models/CalculationForm';
-import LatestCalculalationItem from './LatestCalculalationItem';
-import urls from '../../utils/urls';
-import { useLoader } from '../../store/loader';
-import { useError } from '../../store/error';
+"use client";
+import { BaseWrapper } from "binak-react-components";
+import { FC, useCallback, useEffect, useState } from "react";
+import { CalculationForm } from "@/models/CalculationForm";
+import LatestCalculalationItem from "./LatestCalculalationItem";
+import { useLoader } from "@/store/loader";
+import { useError } from "@/store/error";
+import { latestCalculations } from "@/app/actions";
 
 const ListLatestCalculalations: FC = () => {
   const setLoading = useLoader((state) => state.setLoading);
@@ -15,13 +16,14 @@ const ListLatestCalculalations: FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(urls.latest);
-      const responseData = await response.json();
+      const responseData = await latestCalculations();
 
-      if (response.status === 200) {
+      if (responseData) {
         setCalculations(responseData);
       } else {
-        throw new Error(responseData.message);
+        throw new Error(
+          "Üzgünüm, bir hata oldu ve son hesaplamalar gösterilemiyor!"
+        );
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -39,16 +41,16 @@ const ListLatestCalculalations: FC = () => {
     <>
       <BaseWrapper
         style={{
-          display: 'flex',
-          margin: 'auto',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          width: '80rem',
-          maxWidth: '90%',
+          display: "flex",
+          margin: "auto",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          width: "80rem",
+          maxWidth: "90%",
         }}
       >
-        {calculations?.map((calculation) => (
-          <LatestCalculalationItem calculation={calculation} />
+        {calculations?.map((calculation, index) => (
+          <LatestCalculalationItem calculation={calculation} key={index} />
         ))}
       </BaseWrapper>
     </>

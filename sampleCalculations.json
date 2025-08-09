@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Recep İvedik 2'de 28,70TL olan 2 adet Kopernik Pizzası'nın",
+    "parameters": { "date": "12.2.2009", "amount": "28,70" },
+    "videoId": "Ei3HaqPCIWA"
+  },
+  {
+    "label": "2000 Yılbaşı Çekilişi'ndeki 1.000.000.000.000TL'lik büyük ikramiyenin",
+    "parameters": { "date": "31.12.1999", "amount": "1.000.000.000.000,00" },
+    "imageUrl": "1999-yilbasi-ikramiyesi.jpg"
+  },
+  {
+    "label": "Behzat Ç'de 2 bira 1 cips için verilen 7TL'nin",
+    "parameters": { "date": "1.5.2011", "amount": "7" },
+    "videoId": "LiADwnsrhkw"
+  },
+  {
+    "label": "Tokatçı'da 600.000TL olan başlık parasının",
+    "parameters": { "date": "1.2.1984", "amount": "600000" },
+    "videoId": "nS3kzWpDlmw"
+  },
+  {
+    "label": "2013 yılında 4.168TL olan uzman doktor maaşının",
+    "parameters": { "date": "1.7.2013", "amount": "4.168" },
+    "imageUrl": "2013-memur-maasi.jpg"
+  },
+  {
+    "label": "Cem Uzan'ın mazot vaadindeki 1TL'nin",
+    "parameters": { "date": "13.11.2006", "amount": "1" },
+    "videoId": "7ExZE4AfVJs"
+  },
+  {
+    "label": "İzdivaç programı için Esra Erol & Ali Özbir çiftine ödenen aylık 2.200.000TL'nin",
+    "parameters": { "date": "1.7.2015", "amount": "2.200.000" },
+    "imageUrl": "izdivac-2015.jpg"
+  },
+  {
+    "label": "Milyarder'deki milyar TL'lik biletin",
+    "parameters": { "date": "2.1.1986", "amount": "1.000.000.000" },
+    "videoId": "nGZ2j3u-HSU"
+  },
+  {
+    "label": "2020 yılında 103.900TL'ye satılan Egea'nın",
+    "parameters": { "date": "2.1.2020", "amount": "103.900" },
+    "imageUrl": "2020-egea.jpg"
+  },
+  {
+    "label": "2019 yılında Ekrem Coşkun'da 80TL'ye satılan 1 kg dönerin",
+    "parameters": { "date": "1.8.2019", "amount": "80" },
+    "imageUrl": "2019-ekrem-coskun.jpg"
+  }
+]

@@ -1,8 +1,9 @@
-import { FC, useState } from 'react';
-import { CalculationForm } from '../../models/CalculationForm';
-import { BaseButton, BaseCard, BaseWrapper } from 'binak-react-components';
-import { DisplayInflation } from '../calculation/DisplayInflation';
-import { numberToAmount } from '../../utils/utils';
+"use client";
+import { FC, useState } from "react";
+import { CalculationForm } from "@/models/CalculationForm";
+import { BaseButton, BaseCard, BaseWrapper } from "binak-react-components";
+import { DisplayInflation } from "@/components/calculation/DisplayInflation";
+import { numberToAmount } from "@/utils/utils";
 
 interface LatestCalculalationItemProps {
   calculation: CalculationForm;
@@ -22,11 +23,11 @@ const LatestCalculalationItem: FC<LatestCalculalationItemProps> = ({
 
   return (
     <>
-      <BaseCard style={{ margin: 0, width: '20rem' }}>
+      <BaseCard style={{ margin: 0, width: "20rem" }}>
         <p
           style={{ fontWeight: 500 }}
         >{`${calculation.date} tarihindeki ${calculation.amount}TL'nin;`}</p>
-        <BaseWrapper mode={['align-right']}>
+        <BaseWrapper mode={["align-right"]}>
           <BaseButton
             mode="flat"
             style={{ fontWeight: 500 }}

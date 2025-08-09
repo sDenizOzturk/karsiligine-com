@@ -1,5 +1,5 @@
 export default {
-  index: '/',
-  latest: 'latest',
-  contribute: 'contribute',
+  index: "/",
+  latest: "latest",
+  contribute: "contribute",
 };

@@ -1,18 +1,33 @@
-# Karsiligi Ne?
+# Karşılığı Ne?
 
-[karsiligine.com](https://karsiligine.com) is a web application that calculates TL inlation using USD rates and USD inflation.
+[karsiligine.com](https://karsiligine.com) is an open-source web application that calculates Turkish Lira inflation based on USD exchange rates and USD inflation data.
 
-## Technologies Used
+The project now runs entirely on **Next.js** — there is no separate backend repository.
+All logic, data fetching, and rendering are handled within a single monorepo.
 
-- React
+## 🚀 Technologies Used
+
+- Next.js
 - TypeScript
 - Framer Motion
-- React Youtube
 - React Hook Form
 - Zustand
 - [Bınak React Components](https://github.com/sDenizOzturk/binak-react-components)
 - [React Image Displayer](https://github.com/sDenizOzturk/react-image-displayer)
+- Fast XML Parser
 
-## Backend Repository
+## 📦 Getting Started
 
-[github.com/sDenizOzturk/karsiligine-api](https://github.com/sDenizOzturk/karsiligine-api)
+```bash
+git clone https://github.com/sDenizOzturk/karsiligine-com.git
+cd karsiligine-com
+npm install
+npm run dev
+```
+
+Then visit: **[http://localhost:3000](http://localhost:3000)**
+
+## 🤝 Contributing
+
+Karşılığı ne is an open-source project.
+You can contribute by opening issues, submitting pull requests, or improving documentation.
