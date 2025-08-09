@@ -1,37 +1,35 @@
-import { NavLink } from 'react-router-dom';
-import routes from '../../utils/routes';
-import { FC } from 'react';
-import { BaseHeader, headerActiveStyle } from 'binak-react-components';
-import { DisplayingRoute } from '../../models/DisplayingRoute';
-import logo from '../../assets/logo.png';
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FC } from "react";
+import { BaseHeader, headerActiveStyle } from "binak-react-components";
+import { DisplayingRoute } from "@/models/DisplayingRoute";
 
 const Header: FC = () => {
-  const displayingRoutes: DisplayingRoute[] = [];
-
-  displayingRoutes.push({ to: routes.index, text: 'Karşılığı Ne?' });
-  displayingRoutes.push({
-    to: routes.latest,
-    text: 'Son Hesaplamalar',
-  });
+  const pathname = usePathname();
+  const displayingRoutes: DisplayingRoute[] = [
+    { to: "/", text: "Karşılığı Ne?" },
+    { to: "/latest", text: "Son Hesaplamalar" },
+  ];
 
   return (
     <BaseHeader
       leftContent={
         <>
           {displayingRoutes.map((route) => (
-            <NavLink
+            <Link
               key={route.text}
-              style={({ isActive }) => (isActive ? headerActiveStyle : {})}
-              to={route.to}
-              onClick={route.onClick}
+              href={route.to}
+              style={pathname === route.to ? headerActiveStyle : {}}
             >
               {route.text}
-            </NavLink>
+            </Link>
           ))}
         </>
       }
-      rightContent={<img src={logo}></img>}
+      rightContent={<img src="/logo.png" alt="logo" />}
     />
   );
 };
+
 export default Header;

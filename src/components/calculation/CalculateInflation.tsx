@@ -1,14 +1,15 @@
-import { FC, useState } from 'react';
+"use client";
+import { FC, useState } from "react";
 import {
   BaseButton,
   BaseCard,
   BaseFormInput,
   BaseWrapper,
-} from 'binak-react-components';
-import { useForm } from 'react-hook-form';
-import { amountToNumber, getFiveYearsAgo } from '../../utils/utils';
-import { DisplayInflation } from './DisplayInflation';
-import { CalculationForm } from '../../models/CalculationForm';
+} from "binak-react-components";
+import { useForm } from "react-hook-form";
+import { amountToNumber, getFiveYearsAgo } from "@/utils/utils";
+import { DisplayInflation } from "./DisplayInflation";
+import { CalculationForm } from "@/models/CalculationForm";
 
 const CalculateInflation: FC = () => {
   const {
@@ -16,8 +17,8 @@ const CalculateInflation: FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<CalculationForm>({
-    mode: 'onTouched',
-    defaultValues: { amount: '', date: getFiveYearsAgo() },
+    mode: "onTouched",
+    defaultValues: { amount: "", date: getFiveYearsAgo() },
   });
 
   const [calculationInput, setCalculationInput] = useState<CalculationForm>();
@@ -28,18 +29,18 @@ const CalculateInflation: FC = () => {
 
   return (
     <>
-      <BaseCard style={{ margin: '0', width: '30rem' }}>
+      <BaseCard style={{ margin: "0", width: "30rem" }}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <BaseFormInput
             id="date"
-            label={'Tarih'}
+            label={"Tarih"}
             error={errors.date}
-            register={register('date', {
+            register={register("date", {
               validate: (value) => {
-                const _date = value.split('.');
+                const _date = value.split(".");
 
                 if (_date.length !== 3) {
-                  return 'Lütfen geçerli bir tarih değeri giriniz (1.12.2012 gibi)';
+                  return "Lütfen geçerli bir tarih değeri giriniz (1.12.2012 gibi)";
                 }
 
                 const day = +_date[0];
@@ -49,9 +50,9 @@ const CalculateInflation: FC = () => {
                 const date = new Date(year, month - 1, day);
 
                 if (date >= new Date()) {
-                  return 'Lütfen bugünden daha önce bir tarih giriniz';
+                  return "Lütfen bugünden daha önce bir tarih giriniz";
                 } else if (date < new Date(1950, 1, 1)) {
-                  return 'Lütfen 1950 yılından itibaren bir tarih giriniz';
+                  return "Lütfen 1950 yılından itibaren bir tarih giriniz";
                 }
               },
             })}
@@ -59,20 +60,20 @@ const CalculateInflation: FC = () => {
           />
           <BaseFormInput
             id="amount"
-            label={'Tutar'}
+            label={"Tutar"}
             error={errors.amount}
-            register={register('amount', {
+            register={register("amount", {
               pattern: {
                 value: /^^[+-]?[0-9]{1,3}(?:\.?[0-9]{3})*(?:,[0-9]{1,2})?$/i,
-                message: 'Lütfen geçerli bir tutar giriniz',
+                message: "Lütfen geçerli bir tutar giriniz",
               },
               validate: (value) => +amountToNumber(value) > 0,
             })}
-            errorMessage={'Lütfen geçerli bir tutar giriniz'}
+            errorMessage={"Lütfen geçerli bir tutar giriniz"}
           />
 
-          <BaseWrapper mode={['align-right']}>
-            <BaseButton type="submit">{'Hesapla'}</BaseButton>
+          <BaseWrapper mode={["align-right"]}>
+            <BaseButton type="submit">{"Hesapla"}</BaseButton>
           </BaseWrapper>
         </form>
       </BaseCard>

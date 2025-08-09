@@ -1,9 +1,10 @@
-import { FC, ReactNode, useState } from 'react';
-import { SampleCalculation } from './SampleCalculation';
+"use client";
+import { FC, ReactNode, useState } from "react";
+import { SampleCalculation } from "./SampleCalculation";
 
-import { BaseButton, BaseWrapper } from 'binak-react-components';
+import { BaseButton, BaseWrapper } from "binak-react-components";
 
-import sampleCalculations from '../../sampleCalculations.json';
+import sampleCalculations from "@/sampleCalculations.json";
 
 interface ListSampleCalculations {
   children: ReactNode;
@@ -24,7 +25,7 @@ export const ListSampleCalculations: FC<ListSampleCalculations> = ({
     setTimeout(() => {
       window.scrollTo({
         top: buttonPosition - buttonHeight,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }, 0);
   };
@@ -33,21 +34,21 @@ export const ListSampleCalculations: FC<ListSampleCalculations> = ({
     <>
       <BaseWrapper
         style={{
-          display: 'flex',
-          margin: 'auto',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          width: '80rem',
-          maxWidth: '90%',
+          display: "flex",
+          margin: "auto",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          width: "80rem",
+          maxWidth: "90%",
         }}
       >
         {children}
         {sampleCalculations.slice(0, sampleQuantity).map((sampleProp) => (
-          <SampleCalculation {...sampleProp} />
+          <SampleCalculation {...sampleProp} key={sampleProp.label} />
         ))}
       </BaseWrapper>
       {sampleQuantity < sampleCalculations.length && (
-        <BaseWrapper mode={['center']}>
+        <BaseWrapper mode={["center"]}>
           <BaseButton mode="outline" onClick={handleLoadMore}>
             Daha Fazla
           </BaseButton>

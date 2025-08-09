@@ -1,6 +1,7 @@
-import { BaseErrorModal } from 'binak-react-components';
-import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+"use client";
+import { BaseErrorModal } from "binak-react-components";
+import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NotFoundView: FC = () => {
   const navigate = useNavigate();

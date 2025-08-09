@@ -1,11 +1,14 @@
-import { FC, useCallback, useEffect, useState } from 'react';
-import { CalculationForm } from '../../models/CalculationForm';
-import { BaseModal, BaseWrapper } from 'binak-react-components';
-import { amountToNumber, numberToAmount, ratioToRate } from '../../utils/utils';
-import { InflationResult } from '../../models/InflationResult';
-import urls from '../../utils/urls';
-import { useLoader } from '../../store/loader';
-import { useError } from '../../store/error';
+"use client";
+import { FC, useCallback, useEffect, useState } from "react";
+import { CalculationForm } from "@/models/CalculationForm";
+import { BaseModal, BaseWrapper } from "binak-react-components";
+import { amountToNumber, numberToAmount, ratioToRate } from "@/utils/utils";
+import { InflationResult } from "@/models/InflationResult";
+
+import { useLoader } from "@/store/loader";
+import { useError } from "@/store/error";
+
+import { calculateInflation } from "@/app/actions";
 
 interface DisplayInflationProps {
   calculationInput: CalculationForm | undefined;
@@ -25,13 +28,11 @@ export const DisplayInflation: FC<DisplayInflationProps> = ({
     setLoading(true);
 
     try {
-      const response = await fetch(urls.calculateInflation(calculationInput!));
-
-      const responseData = await response.json();
-      if (response.status === 200) {
+      const responseData = await calculateInflation(calculationInput!);
+      if (responseData) {
         setResult(responseData);
       } else {
-        throw new Error(responseData.message);
+        throw new Error("Üzgünüm, bir hata oldu ve enflasyon hesaplanamadı!");
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -60,7 +61,7 @@ export const DisplayInflation: FC<DisplayInflationProps> = ({
       result!.endDateCurrency.date
     } tarihindeki dolar kuru: ${result!.endDateCurrency.currency
       .toFixed(2)
-      .replace('.', ',')}TL`,
+      .replace(".", ",")}TL`,
     `Dolar kurundaki artış: %${ratioToRate(result!.usdRateIncrease)}`,
     `Resmi dolar enflasyonu: %${ratioToRate(result!.usdInflation)}`,
     `Dolara göre TL enflasyonu: %${ratioToRate(result!.tlInflation)}`,
@@ -77,16 +78,16 @@ export const DisplayInflation: FC<DisplayInflationProps> = ({
         center
       >
         {
-          <BaseWrapper style={{ padding: '1rem' }}>
-            {details.map((detail) => (
-              <p style={{ margin: '0' }}>
+          <BaseWrapper style={{ padding: "1rem" }}>
+            {details.map((detail, index) => (
+              <p style={{ margin: "0" }} key={index}>
                 <i>{detail}</i>
               </p>
             ))}
             <h4>{`${calculationInput!.date} tarihindeki ${numberToAmount(
               +amountToNumber(calculationInput!.amount)
             )}TL'nin bugünkü karşılığı:`}</h4>
-            <h2 style={{ textAlign: 'center' }}>{`${numberToAmount(
+            <h2 style={{ textAlign: "center" }}>{`${numberToAmount(
               result!.result
             )}TL`}</h2>
           </BaseWrapper>

@@ -1,29 +1,28 @@
-import { NavLink } from 'react-router-dom';
-import routes from '../../utils/routes';
-import { FC } from 'react';
-import { BaseFooter, footerActiveStyle } from 'binak-react-components';
-import { DisplayingRoute } from '../../models/DisplayingRoute';
-
-import logo from '../../assets/logo.png';
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FC } from "react";
+import { BaseFooter, footerActiveStyle } from "binak-react-components";
+import { DisplayingRoute } from "@/models/DisplayingRoute";
 
 const Footer: FC = () => {
-  const displayingRoutes: DisplayingRoute[] = [];
-
-  displayingRoutes.push({ to: routes.contribute, text: 'Katkı Yap' });
+  const pathname = usePathname();
+  const displayingRoutes: DisplayingRoute[] = [
+    { to: "/contribute", text: "Katkı Yap" },
+  ];
 
   return (
     <BaseFooter
       rightContent={displayingRoutes.map((route) => (
-        <NavLink
+        <Link
           key={route.text}
-          style={({ isActive }) => (isActive ? footerActiveStyle : {})}
-          to={route.to}
-          onClick={route.onClick}
+          href={route.to}
+          style={pathname === route.to ? footerActiveStyle : {}}
         >
           {route.text}
-        </NavLink>
+        </Link>
       ))}
-      leftContent={<img src={logo}></img>}
+      leftContent={<img src="/logo.png" alt="logo" />}
     />
   );
 };
