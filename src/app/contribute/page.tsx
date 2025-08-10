@@ -44,7 +44,7 @@ const Contribute: FC = () => {
                   </p>
                 ))}
                 <a
-                  href="https://github.com/sDenizOzturk/karsiligine-com"
+                  href="https://github.com/sDenizOzturk/karsiligine-com-tr"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
