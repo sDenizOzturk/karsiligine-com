@@ -20,8 +20,8 @@ export const getInflation = async (calculationForm: CalculationForm) => {
       throw new Error("Date cannot be greater than today");
     }
 
-    if (startDate < new Date(1997, 0, 1)) {
-      throw new Error("Date cannot be earlier than 1/1/1997");
+    if (startDate < new Date(1950, 0, 1)) {
+      throw new Error("Date cannot be earlier than 1/1/1950");
     }
 
     const startYear = startDate.getFullYear();
