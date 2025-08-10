@@ -1,19 +1,15 @@
 "use client";
 import { BaseErrorModal } from "binak-react-components";
-import { FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
-const NotFoundView: FC = () => {
-  const navigate = useNavigate();
+export default function NotFoundView() {
+  const router = useRouter();
   return (
-    <>
-      <BaseErrorModal
-        title="Bir hata meydana geldi!"
-        error=" "
-        onClose={() => navigate(-1)}
-        okayButton="Tamam"
-      />
-    </>
+    <BaseErrorModal
+      title="Bir hata meydana geldi!"
+      error=" "
+      onClose={() => router.back()}
+      okayButton="Tamam"
+    />
   );
-};
-export default NotFoundView;
+}
