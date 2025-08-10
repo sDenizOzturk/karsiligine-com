@@ -1,4 +1,6 @@
 import "server-only";
+
+// Created with using the values shared at https://www.in2013dollars.com/us/inflation/1950?amount=1
 const usdInflationRates: Record<number, number> = {
   1950: 1.0126,
   1951: 1.0788,
@@ -74,7 +76,9 @@ const usdInflationRates: Record<number, number> = {
   2021: 1.047,
   2022: 1.08,
   2023: 1.0412,
-  2024: 1.0253,
+  2024: 1.0289,
+  // Updated at 10.08.2025
+  2025: 1.0254,
 };
 
 export default usdInflationRates;
