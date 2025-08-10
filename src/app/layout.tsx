@@ -7,7 +7,7 @@ import Error from "@/components/layout/Error";
 
 const title = "Karşılığı ne? | Dolar Üzerinden Enflasyon Hesaplama Aracı";
 const description =
-  "Fiyatların bugünkü karşılıklarını hesaplayın. Dolar üzerinden geçmiş fiyatları güncel değerlere çevirin..";
+  "Fiyatların bugünkü karşılıklarını hesaplayın. Dolar üzerinden geçmiş fiyatları güncel değerlere çevirin...";
 
 import type { Metadata } from "next";
 export const metadata: Metadata = {
