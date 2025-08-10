@@ -1,6 +1,6 @@
 # Karşılığı Ne?
 
-[karsiligine.com](https://karsiligine.com) is an open-source web application that calculates Turkish Lira inflation based on USD exchange rates and USD inflation data.
+[karsiligine.com.tr](https://karsiligine.com.tr) is an open-source web application that calculates Turkish Lira inflation based on USD exchange rates and USD inflation data.
 
 The project now runs entirely on **Next.js** — there is no separate backend repository.
 All logic, data fetching, and rendering are handled within a single monorepo.
@@ -19,8 +19,8 @@ All logic, data fetching, and rendering are handled within a single monorepo.
 ## 📦 Getting Started
 
 ```bash
-git clone https://github.com/sDenizOzturk/karsiligine-com.git
-cd karsiligine-com
+git clone https://github.com/sDenizOzturk/karsiligine-com-tr.git
+cd karsiligine-com-tr
 npm install
 npm run dev
 ```
